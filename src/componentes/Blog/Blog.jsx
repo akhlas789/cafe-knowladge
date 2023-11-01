@@ -27,10 +27,10 @@ const Blog = ({ blog, handaleAddToBookmark, handaleMarkAsRead }) => {
             <h2 className='text-3xl'> {blog.title}</h2>
             <p>
                 {
-                    blog.hashtags.map((has) => <span key={has.id}><a href="">#{has}</a></span>)
+                    blog.hashtags.map((has, idx) => <span key={idx}><a href="">#{has}</a></span>)
                 }
             </p>
-            <button onClick={() => handaleMarkAsRead(blog.reading_time)} className='text-purple-600 font-bold underline'>Mark As Read</button>
+            <button onClick={() => handaleMarkAsRead(blog.reading_time,blog.id)} className='text-purple-600 font-bold underline'>Mark As Read</button>
         </div>
     );
 };
