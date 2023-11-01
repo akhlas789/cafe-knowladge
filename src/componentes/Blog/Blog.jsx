@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 
 import { FaBookmark } from 'react-icons/fa';
-const Blog = ({ blog, handaleAddToBookmark }) => {
+const Blog = ({ blog, handaleAddToBookmark, handaleMarkAsRead }) => {
 
     return (
-        <div className='mb-20'>
+        <div className='mb-20 sp-y-4'>
             <img className='w-full mb-8' src={blog.cover} alt={`cover picture of the title${blog.title}`} />
 
             <div className='flex justify-between mb-4'>
@@ -25,9 +25,12 @@ const Blog = ({ blog, handaleAddToBookmark }) => {
             </div>
 
             <h2 className='text-3xl'> {blog.title}</h2>
-            {
-                blog.hashtags.map((has) => <span key={has.id}><a href="">#{has}</a></span>)
-            }
+            <p>
+                {
+                    blog.hashtags.map((has) => <span key={has.id}><a href="">#{has}</a></span>)
+                }
+            </p>
+            <button onClick={() => handaleMarkAsRead(blog.reading_time)} className='text-purple-600 font-bold underline'>Mark As Read</button>
         </div>
     );
 };

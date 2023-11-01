@@ -4,7 +4,7 @@ import { useState } from "react";
 import Blog from "../Blog/Blog";
 // import propTypes from 'prop-types'
 
-const Blogs = ({handaleAddToBookmark}) => {
+const Blogs = ({ handaleAddToBookmark, handaleMarkAsRead }) => {
     const [blogs, setBlogs] = useState([])
 
     useEffect(() => {
@@ -16,7 +16,12 @@ const Blogs = ({handaleAddToBookmark}) => {
         <div className="md:w-2/3 mx-auto">
             <h1 className="text-3xl">Blogs: {blogs.length}</h1>
             {
-                blogs.map(blog => <Blog blog={blog} handaleAddToBookmark={handaleAddToBookmark} key={blog.id}></Blog>)
+                blogs.map(blog => <Blog
+                    blog={blog}
+                    handaleAddToBookmark={handaleAddToBookmark}
+                    key={blog.id}
+                    handaleMarkAsRead={handaleMarkAsRead}
+                ></Blog>)
             }
         </div>
     );
